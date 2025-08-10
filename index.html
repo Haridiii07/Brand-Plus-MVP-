@@ -1,0 +1,229 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>BrandPulse - Personal Brand Analytics</title>
+    <link rel="stylesheet" href="styles.css">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+</head>
+<body>
+    <!-- Navigation -->
+    <nav class="navbar">
+        <div class="nav-container">
+            <div class="nav-brand">
+                <i class="fas fa-chart-line brand-icon"></i>
+                <span class="brand-text">BrandPulse</span>
+            </div>
+            <div class="nav-menu">
+                <a href="#dashboard" class="nav-link active" data-section="dashboard">
+                    <i class="fas fa-tachometer-alt"></i>
+                    Dashboard
+                </a>
+                <a href="#profile" class="nav-link" data-section="profile">
+                    <i class="fas fa-user"></i>
+                    Profile
+                </a>
+                <a href="#recommendations" class="nav-link" data-section="recommendations">
+                    <i class="fas fa-lightbulb"></i>
+                    Insights
+                </a>
+            </div>
+            <div class="user-info">
+                <div class="user-avatar">
+                    <i class="fas fa-user-circle"></i>
+                </div>
+                <span class="user-name" id="currentUserName">Alice Smith</span>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Main Content -->
+    <main class="main-content">
+        <!-- Dashboard Section -->
+        <section id="dashboard" class="content-section active">
+            <div class="section-header">
+                <h1>Personal Brand Analytics Dashboard</h1>
+                <p>Track your professional presence across platforms</p>
+            </div>
+
+            <!-- KPI Cards -->
+            <div class="kpi-grid">
+                <div class="kpi-card">
+                    <div class="kpi-icon linkedin">
+                        <i class="fab fa-linkedin"></i>
+                    </div>
+                    <div class="kpi-content">
+                        <h3>LinkedIn Followers</h3>
+                        <div class="kpi-value">520</div>
+                        <div class="kpi-change positive">
+                            <i class="fas fa-arrow-up"></i>
+                            +4% this week
+                        </div>
+                    </div>
+                </div>
+
+                <div class="kpi-card">
+                    <div class="kpi-icon twitter">
+                        <i class="fab fa-twitter"></i>
+                    </div>
+                    <div class="kpi-content">
+                        <h3>Twitter Followers</h3>
+                        <div class="kpi-value">110</div>
+                        <div class="kpi-change positive">
+                            <i class="fas fa-arrow-up"></i>
+                            +4.8% this week
+                        </div>
+                    </div>
+                </div>
+
+                <div class="kpi-card">
+                    <div class="kpi-icon engagement">
+                        <i class="fas fa-heart"></i>
+                    </div>
+                    <div class="kpi-content">
+                        <h3>Avg Engagement</h3>
+                        <div class="kpi-value">5.1%</div>
+                        <div class="kpi-change neutral">
+                            <i class="fas fa-minus"></i>
+                            -0.1% this week
+                        </div>
+                    </div>
+                </div>
+
+                <div class="kpi-card">
+                    <div class="kpi-icon views">
+                        <i class="fas fa-eye"></i>
+                    </div>
+                    <div class="kpi-content">
+                        <h3>Profile Views</h3>
+                        <div class="kpi-value">60</div>
+                        <div class="kpi-change positive">
+                            <i class="fas fa-arrow-up"></i>
+                            +9.1% this week
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Analytics Dashboard Embed -->
+            <div class="dashboard-embed">
+                <div class="embed-header">
+                    <h2>Detailed Analytics</h2>
+                    <p>Interactive dashboard powered by Google Data Studio</p>
+                </div>
+                <div class="embed-container">
+                    <iframe width="600" height="450" src="https://lookerstudio.google.com/embed/reporting/4f05f8dc-f304-4557-9a90-fbddfa1c79af/page/IKCUF" frameborder="0" style="border:0" allowfullscreen sandbox="allow-storage-access-by-user-activation allow-scripts allow-same-origin allow-popups allow-popups-to-escape-sandbox"></iframe>
+                </div>
+            </div>
+        </section>
+
+        <!-- Profile Section -->
+        <section id="profile" class="content-section">
+            <div class="section-header">
+                <h1>User Profile</h1>
+                <p>Manage your connected social media accounts</p>
+            </div>
+
+            <div class="profile-container">
+                <div class="profile-card">
+                    <div class="profile-avatar">
+                        <i class="fas fa-user-circle"></i>
+                    </div>
+                    <div class="profile-info">
+                        <h2 id="profileName">Alice Smith</h2>
+                        <p id="profileEmail">user1@example.com</p>
+                    </div>
+                </div>
+
+                <div class="social-accounts">
+                    <h3>Connected Accounts</h3>
+                    <div class="account-list">
+                        <div class="account-item">
+                            <div class="account-icon linkedin">
+                                <i class="fab fa-linkedin"></i>
+                            </div>
+                            <div class="account-info">
+                                <h4>LinkedIn</h4>
+                                <p>alice-smith-li</p>
+                            </div>
+                            <div class="account-status connected">
+                                <i class="fas fa-check-circle"></i>
+                                Connected
+                            </div>
+                        </div>
+
+                        <div class="account-item">
+                            <div class="account-icon twitter">
+                                <i class="fab fa-twitter"></i>
+                            </div>
+                            <div class="account-info">
+                                <h4>Twitter</h4>
+                                <p>alicesmith_tw</p>
+                            </div>
+                            <div class="account-status connected">
+                                <i class="fas fa-check-circle"></i>
+                                Connected
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Recommendations Section -->
+        <section id="recommendations" class="content-section">
+            <div class="section-header">
+                <h1>Personalized Insights</h1>
+                <p>AI-powered recommendations to boost your personal brand</p>
+            </div>
+
+            <div class="recommendations-container">
+                <div class="recommendation-card">
+                    <div class="recommendation-icon">
+                        <i class="fas fa-lightbulb"></i>
+                    </div>
+                    <div class="recommendation-content">
+                        <h3>Content Strategy Insight</h3>
+                        <p>Your LinkedIn image posts have higher engagement. Consider creating more visual content.</p>
+                        <div class="recommendation-meta">
+                            <span class="recommendation-date">August 1, 2025</span>
+                            <span class="recommendation-status new">New</span>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="recommendation-card">
+                    <div class="recommendation-icon">
+                        <i class="fas fa-trending-up"></i>
+                    </div>
+                    <div class="recommendation-content">
+                        <h3>Engagement Opportunity</h3>
+                        <p>Your posting frequency has decreased this week. Consistent posting can help maintain audience engagement.</p>
+                        <div class="recommendation-meta">
+                            <span class="recommendation-date">July 28, 2025</span>
+                            <span class="recommendation-status implemented">Implemented</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="footer-content">
+            <p>&copy; 2025 BrandPulse. Built with ❤️ for personal brand growth.</p>
+            <div class="footer-links">
+                <a href="#feedback">Feedback</a>
+                <a href="#support">Support</a>
+                <a href="#about">About</a>
+            </div>
+        </div>
+    </footer>
+
+    <script src="script.js"></script>
+</body>
+</html>
+
