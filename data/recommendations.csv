@@ -1,0 +1,7 @@
+UserID,RecommendationID,Title,Description,Category,Priority,Status,DateCreated
+1,REC001,Content Strategy Insight,Your LinkedIn image posts have higher engagement. Consider creating more visual content.,Content Strategy,High,New,2025-01-15
+1,REC002,Engagement Opportunity,Your posting frequency has decreased this week. Consistent posting can help maintain audience engagement.,Engagement,Medium,Implemented,2025-01-10
+2,REC003,Network Expansion,Consider connecting with industry leaders in your field to expand your network.,Networking,High,New,2025-01-14
+2,REC004,Profile Optimization,Update your LinkedIn headline to better reflect your current role and expertise.,Profile,Medium,New,2025-01-12
+3,REC005,Content Diversification,Try posting different types of content to see what resonates best with your audience.,Content Strategy,Medium,Implemented,2025-01-13
+3,REC006,Engagement Analysis,Your posts with questions get more comments. Include more questions in your content.,Engagement,High,New,2025-01-16
