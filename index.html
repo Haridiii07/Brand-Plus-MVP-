@@ -3,250 +3,342 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>BrandPulse - Personal Brand Analytics</title>
-    <link rel="stylesheet" href="styles.css">
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <title>BrandPulse - Personal Brand Analytics Platform</title>
+    <link rel="stylesheet" href="landing-styles.css">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/PapaParse/5.4.1/papaparse.min.js"></script>
 </head>
 <body>
-    <!-- Skip to Content Link -->
-    <a href="#main-content" class="skip-link">Skip to main content</a>
-    
     <!-- Navigation -->
-    <nav class="navbar" role="navigation" aria-label="Main navigation">
+    <nav class="navbar">
         <div class="nav-container">
             <div class="nav-brand">
-                <i class="fas fa-chart-line brand-icon" aria-hidden="true"></i>
+                <i class="fas fa-chart-line brand-icon"></i>
                 <span class="brand-text">BrandPulse</span>
             </div>
-            <div class="nav-menu" role="menubar">
-                <a href="#dashboard" class="nav-link active" data-section="dashboard" role="menuitem" aria-label="Dashboard navigation" aria-current="page">
-                    <i class="fas fa-tachometer-alt" aria-hidden="true"></i>
-                    Dashboard
-                </a>
-                <a href="#profile" class="nav-link" data-section="profile" role="menuitem" aria-label="Profile navigation">
-                    <i class="fas fa-user" aria-hidden="true"></i>
-                    Profile
-                </a>
-                <a href="#recommendations" class="nav-link" data-section="recommendations" role="menuitem" aria-label="Insights and recommendations navigation">
-                    <i class="fas fa-lightbulb" aria-hidden="true"></i>
-                    Insights
-                </a>
-            </div>
-            <div class="user-info" aria-label="Current user information">
-                <div class="user-avatar" aria-hidden="true">
-                    <i class="fas fa-user-circle"></i>
-                </div>
-                <span class="user-name" id="currentUserName" aria-label="Current user name">Loading...</span>
+            
+            <!-- Mobile Menu Button -->
+            <button class="mobile-menu-btn" aria-label="Toggle mobile menu" aria-expanded="false">
+                <span class="hamburger-line"></span>
+                <span class="hamburger-line"></span>
+                <span class="hamburger-line"></span>
+            </button>
+            
+            <div class="nav-menu">
+                <a href="#features" class="nav-link">Features</a>
+                <a href="#how-it-works" class="nav-link">How It Works</a>
+                <a href="#pricing" class="nav-link">Pricing</a>
+                <a href="dashboard.html" class="nav-link cta-button">Access Dashboard</a>
             </div>
         </div>
     </nav>
+    
+    <!-- Mobile Menu Overlay -->
+    <div class="mobile-menu-overlay"></div>
 
-    <!-- Main Content -->
-    <main class="main-content" id="main-content" role="main">
-        <!-- Dashboard Section -->
-        <section id="dashboard" class="content-section active">
-            <div class="section-header">
-                <h1>Personal Brand Analytics Dashboard</h1>
-                <p>Track your professional presence across platforms</p>
-            </div>
-
-            <!-- KPI Cards -->
-            <div class="kpi-grid" role="region" aria-label="Key Performance Indicators">
-                <div class="kpi-card" data-kpi="linkedin-followers" role="article" aria-labelledby="linkedin-followers-title">
-                    <div class="kpi-icon linkedin" aria-hidden="true">
-                        <i class="fab fa-linkedin"></i>
-                    </div>
-                    <div class="kpi-content">
-                        <h3 id="linkedin-followers-title">LinkedIn Followers</h3>
-                        <div class="kpi-value" data-value="0" aria-live="polite" aria-label="LinkedIn followers count">Loading...</div>
-                        <div class="kpi-change" data-change="0" aria-label="LinkedIn followers change">
-                            <i class="fas fa-minus" aria-hidden="true"></i>
-                            <span class="change-text">Loading...</span>
-                        </div>
-                    </div>
+    <!-- Hero Section -->
+    <section class="hero">
+        <div class="hero-container">
+            <div class="hero-content">
+                <h1 class="hero-title">
+                    Track Your <span class="highlight">Personal Brand</span><br>
+                    Across All Platforms
+                </h1>
+                <p class="hero-subtitle">
+                    Get unified insights into your LinkedIn, Twitter, and other social media performance. 
+                    Make data-driven decisions to grow your professional presence.
+                </p>
+                <div class="hero-cta">
+                    <a href="dashboard.html" class="cta-button primary">
+                        <i class="fas fa-rocket"></i>
+                        Access Dashboard
+                    </a>
+                    <a href="#demo-placeholder" class="cta-button secondary">
+                        <i class="fas fa-play"></i>
+                        Watch Demo
+                    </a>
                 </div>
-
-                <div class="kpi-card" data-kpi="twitter-followers" role="article" aria-labelledby="twitter-followers-title">
-                    <div class="kpi-icon twitter" aria-hidden="true">
-                        <i class="fab fa-twitter"></i>
+                <div class="hero-stats">
+                    <div class="stat">
+                        <div class="stat-number">50+</div>
+                        <div class="stat-label">Beta Users</div>
                     </div>
-                    <div class="kpi-content">
-                        <h3 id="twitter-followers-title">Twitter Followers</h3>
-                        <div class="kpi-value" data-value="0" aria-live="polite" aria-label="Twitter followers count">Loading...</div>
-                        <div class="kpi-change" data-change="0" aria-label="Twitter followers change">
-                            <i class="fas fa-minus" aria-hidden="true"></i>
-                            <span class="change-text">Loading...</span>
-                        </div>
+                    <div class="stat">
+                        <div class="stat-number">2</div>
+                        <div class="stat-label">Platforms</div>
                     </div>
-                </div>
-
-                <div class="kpi-card" data-kpi="avg-engagement" role="article" aria-labelledby="avg-engagement-title">
-                    <div class="kpi-icon engagement" aria-hidden="true">
-                        <i class="fas fa-heart"></i>
-                    </div>
-                    <div class="kpi-content">
-                        <h3 id="avg-engagement-title">Avg Engagement</h3>
-                        <div class="kpi-value" data-value="0" aria-live="polite" aria-label="Average engagement percentage">Loading...</div>
-                        <div class="kpi-change" data-change="0" aria-label="Average engagement change">
-                            <i class="fas fa-minus" aria-hidden="true"></i>
-                            <span class="change-text">Loading...</span>
-                        </div>
-                    </div>
-                </div>
-
-                <div class="kpi-card" data-kpi="profile-views" role="article" aria-labelledby="profile-views-title">
-                    <div class="kpi-icon views" aria-hidden="true">
-                        <i class="fas fa-eye"></i>
-                    </div>
-                    <div class="kpi-content">
-                        <h3 id="profile-views-title">Profile Views</h3>
-                        <div class="kpi-value" data-value="0" aria-live="polite" aria-label="Profile views count">Loading...</div>
-                        <div class="kpi-change" data-change="0" aria-label="Profile views change">
-                            <i class="fas fa-minus" aria-hidden="true"></i>
-                            <span class="change-text">Loading...</span>
-                        </div>
+                    <div class="stat">
+                        <div class="stat-number">100%</div>
+                        <div class="stat-label">Free</div>
                     </div>
                 </div>
             </div>
-
-            <!-- Analytics Dashboard Embed -->
-            <div class="dashboard-embed" role="region" aria-labelledby="analytics-dashboard-title">
-                <div class="embed-header">
-                    <h2 id="analytics-dashboard-title">Detailed Analytics</h2>
-                    <p>Interactive dashboard powered by Google Data Studio</p>
-                </div>
-                <div class="embed-container">
-                    <iframe 
-                        width="600" 
-                        height="450" 
-                        src="https://lookerstudio.google.com/embed/reporting/4f05f8dc-f304-4557-9a90-fbddfa1c79af/page/IKCUF" 
-                        frameborder="0" 
-                        style="border:0" 
-                        allowfullscreen 
-                        sandbox="allow-storage-access-by-user-activation allow-scripts allow-same-origin allow-popups allow-popups-to-escape-sandbox"
-                        title="BrandPulse Analytics Dashboard - Interactive charts and metrics for personal brand performance"
-                        aria-label="Interactive analytics dashboard showing detailed performance metrics">
-                    </iframe>
-                </div>
-            </div>
-        </section>
-
-        <!-- Profile Section -->
-        <section id="profile" class="content-section" role="region" aria-labelledby="profile-section-title">
-            <div class="section-header">
-                <h1 id="profile-section-title">User Profile</h1>
-                <p>Manage your connected social media accounts</p>
-            </div>
-
-            <div class="profile-container">
-                <div class="profile-card" role="article" aria-labelledby="profileName">
-                    <div class="profile-avatar" aria-hidden="true">
-                        <i class="fas fa-user-circle"></i>
+            <div class="hero-visual">
+                <div class="dashboard-preview">
+                    <div class="preview-header">
+                        <div class="preview-dots">
+                            <span></span>
+                            <span></span>
+                            <span></span>
+                        </div>
+                        <div class="preview-title">BrandPulse Dashboard</div>
                     </div>
-                    <div class="profile-info">
-                        <h2 id="profileName">Loading...</h2>
-                        <p id="profileEmail">Loading...</p>
-                    </div>
-                </div>
-
-                <div class="user-selector">
-                    <h3 id="user-selector-title">Switch User Account</h3>
-                    <label for="userSelect" class="sr-only">Select user account</label>
-                    <select id="userSelect" class="user-select" aria-labelledby="user-selector-title">
-                        <option value="">Select a user...</option>
-                    </select>
-                    <p class="user-selector-help" id="user-selector-help">Choose a different user to view their analytics data</p>
-                </div>
-
-                <div class="social-accounts" role="region" aria-labelledby="connected-accounts-title">
-                    <h3 id="connected-accounts-title">Connected Accounts</h3>
-                    <div class="account-list" role="list">
-                        <div class="account-item" role="listitem">
-                            <div class="account-icon linkedin" aria-hidden="true">
+                    <div class="preview-content">
+                        <div class="preview-kpis">
+                            <div class="preview-kpi">
                                 <i class="fab fa-linkedin"></i>
+                                <div class="kpi-data">
+                                    <div class="kpi-value">1,247</div>
+                                    <div class="kpi-label">LinkedIn Followers</div>
+                                </div>
                             </div>
-                            <div class="account-info">
-                                <h4>LinkedIn</h4>
-                                <p>alice-smith-li</p>
-                            </div>
-                            <div class="account-status connected" aria-label="LinkedIn account connected">
-                                <i class="fas fa-check-circle" aria-hidden="true"></i>
-                                Connected
+                            <div class="preview-kpi">
+                                <i class="fab fa-twitter"></i>
+                                <div class="kpi-data">
+                                    <div class="kpi-value">892</div>
+                                    <div class="kpi-label">Twitter Followers</div>
+                                </div>
                             </div>
                         </div>
-
-                        <div class="account-item" role="listitem">
-                            <div class="account-icon twitter" aria-hidden="true">
-                                <i class="fab fa-twitter"></i>
-                            </div>
-                            <div class="account-info">
-                                <h4>Twitter</h4>
-                                <p>alicesmith_tw</p>
-                            </div>
-                            <div class="account-status connected" aria-label="Twitter account connected">
-                                <i class="fas fa-check-circle" aria-hidden="true"></i>
-                                Connected
+                        <div class="preview-chart">
+                            <div class="chart-bars">
+                                <div class="bar" style="height: 60%"></div>
+                                <div class="bar" style="height: 80%"></div>
+                                <div class="bar" style="height: 45%"></div>
+                                <div class="bar" style="height: 90%"></div>
+                                <div class="bar" style="height: 70%"></div>
                             </div>
                         </div>
                     </div>
                 </div>
             </div>
-        </section>
+        </div>
+    </section>
 
-        <!-- Recommendations Section -->
-        <section id="recommendations" class="content-section" role="region" aria-labelledby="recommendations-section-title">
+    <!-- Features Section -->
+    <section id="features" class="features">
+        <div class="container">
             <div class="section-header">
-                <h1 id="recommendations-section-title">Personalized Insights</h1>
-                <p>AI-powered recommendations to boost your personal brand</p>
+                <h2>Why Choose BrandPulse?</h2>
+                <p>Comprehensive analytics and insights to grow your personal brand</p>
             </div>
-
-            <div class="recommendations-container" role="list" aria-label="Personalized recommendations">
-                <div class="recommendation-card" role="listitem" aria-labelledby="recommendation-1-title">
-                    <div class="recommendation-icon" aria-hidden="true">
+            <div class="features-grid">
+                <div class="feature-card">
+                    <div class="feature-icon">
+                        <i class="fas fa-chart-line"></i>
+                    </div>
+                    <h3>Unified Analytics</h3>
+                    <p>Track performance across LinkedIn, Twitter, and more platforms in one dashboard.</p>
+                </div>
+                <div class="feature-card">
+                    <div class="feature-icon">
                         <i class="fas fa-lightbulb"></i>
                     </div>
-                    <div class="recommendation-content">
-                        <h3 id="recommendation-1-title">Content Strategy Insight</h3>
-                        <p>Your LinkedIn image posts have higher engagement. Consider creating more visual content.</p>
-                        <div class="recommendation-meta">
-                            <span class="recommendation-date" aria-label="Recommendation date">August 1, 2025</span>
-                            <span class="recommendation-status new" aria-label="Recommendation status: New">New</span>
-                        </div>
-                    </div>
+                    <h3>AI Insights</h3>
+                    <p>Get personalized recommendations to improve your content strategy and engagement.</p>
                 </div>
-
-                <div class="recommendation-card" role="listitem" aria-labelledby="recommendation-2-title">
-                    <div class="recommendation-icon" aria-hidden="true">
-                        <i class="fas fa-trending-up"></i>
+                <div class="feature-card">
+                    <div class="feature-icon">
+                        <i class="fas fa-clock"></i>
                     </div>
-                    <div class="recommendation-content">
-                        <h3 id="recommendation-2-title">Engagement Opportunity</h3>
-                        <p>Your posting frequency has decreased this week. Consistent posting can help maintain audience engagement.</p>
-                        <div class="recommendation-meta">
-                            <span class="recommendation-date" aria-label="Recommendation date">July 28, 2025</span>
-                            <span class="recommendation-status implemented" aria-label="Recommendation status: Implemented">Implemented</span>
+                    <h3>Real-time Updates</h3>
+                    <p>Monitor your growth with live data updates and trend analysis.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- How It Works Section -->
+    <section id="how-it-works">
+        <div class="container">
+            <div class="section-header">
+                <h2>How It Works</h2>
+                <p>Get started in minutes with our simple setup process</p>
+            </div>
+            <div class="steps-container">
+                <div class="step">
+                    <div class="step-number">1</div>
+                    <h3>Connect Your Accounts</h3>
+                    <p>Link your LinkedIn and Twitter accounts securely to start tracking.</p>
+                </div>
+                <div class="step">
+                    <div class="step-number">2</div>
+                    <h3>View Your Analytics</h3>
+                    <p>See your follower growth, engagement rates, and content performance.</p>
+                </div>
+                <div class="step">
+                    <div class="step-number">3</div>
+                    <h3>Get Insights</h3>
+                    <p>Receive AI-powered recommendations to improve your personal brand.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Pricing Section -->
+    <section id="pricing" class="pricing">
+        <div class="container">
+            <div class="section-header">
+                <h2>Simple, Transparent Pricing</h2>
+                <p>Choose the plan that fits your needs</p>
+            </div>
+            <div class="pricing-cards">
+                <div class="pricing-card">
+                    <div class="pricing-header">
+                        <h3>Beta</h3>
+                        <div class="price">
+                            <span class="currency">$</span>
+                            <span class="amount">0</span>
+                            <span class="period">/month</span>
                         </div>
+                    </div>
+                    <div class="pricing-features">
+                        <div class="feature">
+                            <i class="fas fa-check"></i>
+                            <span>2 Social Media Platforms</span>
+                        </div>
+                        <div class="feature">
+                            <i class="fas fa-check"></i>
+                            <span>Basic Analytics</span>
+                        </div>
+                        <div class="feature">
+                            <i class="fas fa-check"></i>
+                            <span>AI Recommendations</span>
+                        </div>
+                        <div class="feature">
+                            <i class="fas fa-check"></i>
+                            <span>Email Support</span>
+                        </div>
+                    </div>
+                    <a href="dashboard.html" class="pricing-cta">Get Started Free</a>
+                </div>
+                <div class="pricing-card featured">
+                    <div class="pricing-header">
+                        <h3>Pro</h3>
+                        <div class="price">
+                            <span class="currency">$</span>
+                            <span class="amount">9</span>
+                            <span class="period">/month</span>
+                        </div>
+                    </div>
+                    <div class="pricing-features">
+                        <div class="feature">
+                            <i class="fas fa-check"></i>
+                            <span>5+ Social Media Platforms</span>
+                        </div>
+                        <div class="feature">
+                            <i class="fas fa-check"></i>
+                            <span>Advanced Analytics</span>
+                        </div>
+                        <div class="feature">
+                            <i class="fas fa-check"></i>
+                            <span>Priority Support</span>
+                        </div>
+                        <div class="feature">
+                            <i class="fas fa-check"></i>
+                            <span>Custom Reports</span>
+                        </div>
+                    </div>
+                    <a href="dashboard.html" class="pricing-cta">Start Pro Trial</a>
+                </div>
+                <div class="pricing-card">
+                    <div class="pricing-badge">Coming Soon</div>
+                    <div class="pricing-header">
+                        <h3>Premium</h3>
+                        <div class="price">
+                            <span class="currency">$</span>
+                            <span class="amount">29</span>
+                            <span class="period">/month</span>
+                        </div>
+                    </div>
+                    <div class="pricing-features">
+                        <div class="feature">
+                            <i class="fas fa-check"></i>
+                            <span>Unlimited Platforms</span>
+                        </div>
+                        <div class="feature">
+                            <i class="fas fa-check"></i>
+                            <span>Advanced AI Analytics</span>
+                        </div>
+                        <div class="feature">
+                            <i class="fas fa-check"></i>
+                            <span>Predictive Insights</span>
+                        </div>
+                        <div class="feature">
+                            <i class="fas fa-check"></i>
+                            <span>Dedicated Support</span>
+                        </div>
+                    </div>
+                    <a href="#demo-placeholder" class="pricing-cta">Join Waitlist</a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Demo Placeholder Section -->
+    <section id="demo-placeholder" class="demo-placeholder">
+        <div class="container">
+            <div class="demo-content">
+                <h2>Demo Coming Soon</h2>
+                <p>We're working on an interactive demo to show you BrandPulse in action. In the meantime, you can explore the dashboard with sample data.</p>
+                <a href="dashboard.html" class="cta-button">
+                    <i class="fas fa-arrow-right"></i>
+                    Explore Dashboard
+                </a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-brand">
+                    <div class="nav-brand">
+                        <i class="fas fa-chart-line brand-icon"></i>
+                        <span class="brand-text">BrandPulse</span>
+                    </div>
+                    <p>Empowering professionals to build stronger personal brands through data-driven insights.</p>
+                </div>
+                <div class="footer-links">
+                    <div class="link-group">
+                        <h4>Product</h4>
+                        <a href="#features">Features</a>
+                        <a href="#pricing">Pricing</a>
+                        <a href="dashboard.html">Dashboard</a>
+                    </div>
+                    <div class="link-group">
+                        <h4>Company</h4>
+                        <a href="#about">About</a>
+                        <a href="#contact">Contact</a>
+                        <a href="#privacy">Privacy</a>
+                    </div>
+                    <div class="link-group">
+                        <h4>Support</h4>
+                        <a href="#help">Help Center</a>
+                        <a href="#docs">Documentation</a>
+                        <a href="#status">Status</a>
                     </div>
                 </div>
             </div>
-        </section>
-    </main>
-
-    <!-- Footer -->
-    <footer class="footer" role="contentinfo">
-        <div class="footer-content">
-            <p>&copy; 2025 BrandPulse. Built with <span aria-label="love">❤️</span> for personal brand growth.</p>
-            <nav class="footer-links" role="navigation" aria-label="Footer navigation">
-                <a href="#feedback">Feedback</a>
-                <a href="#support">Support</a>
-                <a href="#about">About</a>
-            </nav>
+            <div class="footer-bottom">
+                <p>&copy; 2024 BrandPulse. All rights reserved.</p>
+                <div class="social-links">
+                    <a href="https://twitter.com/brandpulse" target="_blank" rel="noopener">
+                        <i class="fab fa-twitter"></i>
+                    </a>
+                    <a href="https://linkedin.com/company/brandpulse" target="_blank" rel="noopener">
+                        <i class="fab fa-linkedin"></i>
+                    </a>
+                    <a href="https://github.com/brandpulse" target="_blank" rel="noopener">
+                        <i class="fab fa-github"></i>
+                    </a>
+                </div>
+            </div>
         </div>
     </footer>
 
-    <script src="script.js"></script>
+    <script src="landing-script.js"></script>
 </body>
 </html>
 
