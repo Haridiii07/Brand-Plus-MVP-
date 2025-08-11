@@ -225,6 +225,35 @@ document.addEventListener('DOMContentLoaded', function() {
     });
 });
 
+// --- Approval Check Logic ---
+document.addEventListener('DOMContentLoaded', function() {
+    // Approval check for beta signup
+    const approvedEmails = [
+        "user1@example.com",
+        "user2@example.com",
+        "alice.smith@email.com"
+    ];
+
+    const approvalForm = document.getElementById('approval-check-form');
+    if (approvalForm) {
+        approvalForm.addEventListener('submit', function(e) {
+            e.preventDefault();
+            const emailInput = document.getElementById('approval-email');
+            const result = document.getElementById('approval-result');
+            if (emailInput && result) {
+                const email = emailInput.value.trim().toLowerCase();
+                if (approvedEmails.includes(email)) {
+                    result.textContent = "✅ Approved! You can access the dashboard.";
+                    result.style.color = "#2ecc40";
+                } else {
+                    result.textContent = "❌ Not approved yet. Please sign up for beta access.";
+                    result.style.color = "#d32f2f";
+                }
+            }
+        });
+    }
+});
+
 // Console message for developers
 console.log(`
 🚀 BrandPulse MVP - Personal Brand Analytics
@@ -238,4 +267,5 @@ Next steps:
 3. Replace the embed placeholder with your dashboard
 4. Configure user authentication
 `);
+
 

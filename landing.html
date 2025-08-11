@@ -273,6 +273,16 @@
                 <h2>Join the BrandPulse Beta</h2>
                 <p>Be among the first to experience the future of personal brand analytics. Limited spots available.</p>
                 
+                <!-- Email Approval Check Form -->
+                <form id="approval-check-form" class="signup-form" style="margin-bottom:2rem;">
+                    <label for="approval-email" style="font-weight:500;">Enter your email to check approval:</label>
+                    <input type="email" id="approval-email" name="approval-email" class="email-input" placeholder="you@email.com" required style="margin:0 1rem 0 0; padding:0.5rem; border-radius:4px; border:1px solid #ccc;">
+                    <button type="submit" class="signup-btn" style="padding:0.5rem 1.5rem; border-radius:4px; background:#2d72d9; color:#fff; border:none; font-weight:600; cursor:pointer;">
+                        Check
+                    </button>
+                    <span id="approval-result" style="margin-left:1rem; font-weight:500;"></span>
+                </form>
+                
                 <!-- Google Form Embed -->
                 <div class="signup-form">
                     <iframe src="https://docs.google.com/forms/d/e/1FAIpQLSe7lFKrpiGukMcw0JuTPxRyx_PP_wU_BwU3xpp94hrZ4cpX4g/viewform?embedded=true" width="640" height="1049" frameborder="0" marginheight="0" marginwidth="0">Loading…</iframe>
@@ -340,6 +350,27 @@
     </footer>
 
     <script src="landing-script.js"></script>
+    <script>
+    // Example: Replace with your actual approved emails or fetch from your backend
+    const approvedEmails = [
+        "user1@example.com",
+        "user2@example.com",
+        "alice.smith@email.com"
+    ];
+
+    document.getElementById('approval-check-form').addEventListener('submit', function(e) {
+        e.preventDefault();
+        const email = document.getElementById('approval-email').value.trim().toLowerCase();
+        const result = document.getElementById('approval-result');
+        if (approvedEmails.includes(email)) {
+            result.textContent = "✅ Approved! You can access the dashboard.";
+            result.style.color = "#2ecc40";
+        } else {
+            result.textContent = "❌ Not approved yet. Please sign up for beta access.";
+            result.style.color = "#d32f2f";
+        }
+    });
+    </script>
 </body>
 </html>
 
