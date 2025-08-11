@@ -1,6 +1,24 @@
 // Landing Page JavaScript for BrandPulse
 
 document.addEventListener('DOMContentLoaded', function() {
+    // Mobile menu event listeners
+    const mobileMenuBtn = document.querySelector('.mobile-menu-btn');
+    const overlay = document.querySelector('.mobile-menu-overlay');
+    
+    if (mobileMenuBtn) {
+        mobileMenuBtn.addEventListener('click', toggleMobileMenu);
+    }
+    
+    if (overlay) {
+        overlay.addEventListener('click', closeMobileMenu);
+    }
+    
+    // Close mobile menu when clicking a link
+    closeMobileMenuOnLinkClick();
+    
+    // Setup keyboard accessibility
+    setupMobileMenuKeyboardAccess();
+    
     // Smooth scrolling for navigation links
     const navLinks = document.querySelectorAll('.nav-link[href^="#"]');
     navLinks.forEach(link => {
@@ -19,11 +37,12 @@ document.addEventListener('DOMContentLoaded', function() {
         });
     });
 
-    // Navbar scroll effect
+    // Navbar scroll effect (optimized with throttling)
     const navbar = document.querySelector('.navbar');
     let lastScrollTop = 0;
+    let ticking = false;
 
-    window.addEventListener('scroll', function() {
+    function updateNavbar() {
         const scrollTop = window.pageYOffset || document.documentElement.scrollTop;
         
         if (scrollTop > 100) {
@@ -35,6 +54,14 @@ document.addEventListener('DOMContentLoaded', function() {
         }
 
         lastScrollTop = scrollTop;
+        ticking = false;
+    }
+
+    window.addEventListener('scroll', function() {
+        if (!ticking) {
+            requestAnimationFrame(updateNavbar);
+            ticking = true;
+        }
     });
 
     // Animate elements on scroll
@@ -232,20 +259,107 @@ const style = document.createElement('style');
 style.textContent = rippleCSS;
 document.head.appendChild(style);
 
-// Handle mobile menu (if needed in future)
+// Mobile Menu Functionality
 function toggleMobileMenu() {
+    const mobileMenuBtn = document.querySelector('.mobile-menu-btn');
     const navMenu = document.querySelector('.nav-menu');
-    navMenu.classList.toggle('mobile-open');
+    const overlay = document.querySelector('.mobile-menu-overlay');
+    const body = document.body;
+    
+    const isOpen = navMenu.classList.contains('active');
+    
+    if (isOpen) {
+        // Close menu
+        navMenu.classList.remove('active');
+        overlay.classList.remove('active');
+        mobileMenuBtn.classList.remove('active');
+        mobileMenuBtn.setAttribute('aria-expanded', 'false');
+        body.style.overflow = '';
+    } else {
+        // Open menu
+        navMenu.classList.add('active');
+        overlay.classList.add('active');
+        mobileMenuBtn.classList.add('active');
+        mobileMenuBtn.setAttribute('aria-expanded', 'true');
+        body.style.overflow = 'hidden';
+    }
 }
 
-// Parallax effect for hero section
-window.addEventListener('scroll', function() {
+// Close mobile menu when clicking overlay
+function closeMobileMenu() {
+    const mobileMenuBtn = document.querySelector('.mobile-menu-btn');
+    const navMenu = document.querySelector('.nav-menu');
+    const overlay = document.querySelector('.mobile-menu-overlay');
+    const body = document.body;
+    
+    navMenu.classList.remove('active');
+    overlay.classList.remove('active');
+    mobileMenuBtn.classList.remove('active');
+    mobileMenuBtn.setAttribute('aria-expanded', 'false');
+    body.style.overflow = '';
+}
+
+// Close mobile menu when clicking a link
+function closeMobileMenuOnLinkClick() {
+    const navLinks = document.querySelectorAll('.nav-menu .nav-link');
+    navLinks.forEach(link => {
+        link.addEventListener('click', () => {
+            // Small delay to allow smooth scrolling
+            setTimeout(closeMobileMenu, 100);
+        });
+    });
+}
+
+// Keyboard accessibility for mobile menu
+function setupMobileMenuKeyboardAccess() {
+    const mobileMenuBtn = document.querySelector('.mobile-menu-btn');
+    const navMenu = document.querySelector('.nav-menu');
+    
+    if (mobileMenuBtn) {
+        mobileMenuBtn.addEventListener('keydown', function(e) {
+            if (e.key === 'Enter' || e.key === ' ') {
+                e.preventDefault();
+                toggleMobileMenu();
+            }
+        });
+    }
+    
+    // Trap focus within mobile menu when open
+    document.addEventListener('keydown', function(e) {
+        if (e.key === 'Escape' && navMenu.classList.contains('active')) {
+            closeMobileMenu();
+        }
+    });
+}
+
+// Parallax effect for hero section (optimized for performance)
+let parallaxTicking = false;
+
+function updateParallax() {
     const scrolled = window.pageYOffset;
     const hero = document.querySelector('.hero');
     const heroContent = document.querySelector('.hero-container');
     
     if (hero && scrolled < hero.offsetHeight) {
-        heroContent.style.transform = `translateY(${scrolled * 0.5}px)`;
+        // Use transform3d for hardware acceleration and prevent layout shifts
+        heroContent.style.transform = `translate3d(0, ${scrolled * 0.5}px, 0)`;
+    }
+    
+    parallaxTicking = false;
+}
+
+window.addEventListener('scroll', function() {
+    if (!parallaxTicking) {
+        requestAnimationFrame(updateParallax);
+        parallaxTicking = true;
+    }
+});
+
+// Add will-change to hero container for better performance
+document.addEventListener('DOMContentLoaded', function() {
+    const heroContent = document.querySelector('.hero-container');
+    if (heroContent) {
+        heroContent.style.willChange = 'transform';
     }
 });
 

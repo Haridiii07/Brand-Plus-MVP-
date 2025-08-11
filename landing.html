@@ -16,6 +16,14 @@
                 <i class="fas fa-chart-line brand-icon"></i>
                 <span class="brand-text">BrandPulse</span>
             </div>
+            
+            <!-- Mobile Menu Button -->
+            <button class="mobile-menu-btn" aria-label="Toggle mobile menu" aria-expanded="false">
+                <span class="hamburger-line"></span>
+                <span class="hamburger-line"></span>
+                <span class="hamburger-line"></span>
+            </button>
+            
             <div class="nav-menu">
                 <a href="#features" class="nav-link">Features</a>
                 <a href="#how-it-works" class="nav-link">How It Works</a>
@@ -24,6 +32,9 @@
             </div>
         </div>
     </nav>
+    
+    <!-- Mobile Menu Overlay -->
+    <div class="mobile-menu-overlay"></div>
 
     <!-- Hero Section -->
     <section class="hero">
@@ -42,7 +53,7 @@
                         <i class="fas fa-rocket"></i>
                         Join Beta (Free)
                     </a>
-                    <a href="#demo" class="cta-button secondary">
+                    <a href="#demo-placeholder" class="cta-button secondary">
                         <i class="fas fa-play"></i>
                         Watch Demo
                     </a>
@@ -229,19 +240,18 @@
                     <a href="#beta-signup" class="pricing-cta">Join Beta</a>
                 </div>
                 <div class="pricing-card featured">
-                    <div class="pricing-badge">Coming Soon</div>
                     <div class="pricing-header">
                         <h3>Pro</h3>
                         <div class="price">
                             <span class="currency">$</span>
-                            <span class="amount">19</span>
+                            <span class="amount">9</span>
                             <span class="period">/month</span>
                         </div>
                     </div>
                     <div class="pricing-features">
                         <div class="feature">
                             <i class="fas fa-check"></i>
-                            <span>5+ Social Media Platforms</span>
+                            <span>3 Social Media Platforms</span>
                         </div>
                         <div class="feature">
                             <i class="fas fa-check"></i>
@@ -262,6 +272,40 @@
                     </div>
                     <a href="#beta-signup" class="pricing-cta">Get Notified</a>
                 </div>
+                <div class="pricing-card">
+                    <div class="pricing-badge">Coming Soon</div>
+                    <div class="pricing-header">
+                        <h3>Premium</h3>
+                        <div class="price">
+                            <span class="currency">$</span>
+                            <span class="amount">29</span>
+                            <span class="period">/month</span>
+                        </div>
+                    </div>
+                    <div class="pricing-features">
+                        <div class="feature">
+                            <i class="fas fa-check"></i>
+                            <span>5+ Social Media Platforms</span>
+                        </div>
+                        <div class="feature">
+                            <i class="fas fa-check"></i>
+                            <span>Advanced AI Analytics</span>
+                        </div>
+                        <div class="feature">
+                            <i class="fas fa-check"></i>
+                            <span>Predictive Insights</span>
+                        </div>
+                        <div class="feature">
+                            <i class="fas fa-check"></i>
+                            <span>Priority Support</span>
+                        </div>
+                        <div class="feature">
+                            <i class="fas fa-check"></i>
+                            <span>Custom Reports</span>
+                        </div>
+                    </div>
+                    <a href="#beta-signup" class="pricing-cta">Get Notified</a>
+                </div>
             </div>
         </div>
     </section>
@@ -272,16 +316,6 @@
             <div class="signup-content">
                 <h2>Join the BrandPulse Beta</h2>
                 <p>Be among the first to experience the future of personal brand analytics. Limited spots available.</p>
-                
-                <!-- Email Approval Check Form -->
-                <form id="approval-check-form" class="signup-form" style="margin-bottom:2rem;">
-                    <label for="approval-email" style="font-weight:500;">Enter your email to check approval:</label>
-                    <input type="email" id="approval-email" name="approval-email" class="email-input" placeholder="you@email.com" required style="margin:0 1rem 0 0; padding:0.5rem; border-radius:4px; border:1px solid #ccc;">
-                    <button type="submit" class="signup-btn" style="padding:0.5rem 1.5rem; border-radius:4px; background:#2d72d9; color:#fff; border:none; font-weight:600; cursor:pointer;">
-                        Check
-                    </button>
-                    <span id="approval-result" style="margin-left:1rem; font-weight:500;"></span>
-                </form>
                 
                 <!-- Google Form Embed -->
                 <div class="signup-form">
@@ -295,11 +329,58 @@
                     </div>
                     <div class="benefit">
                         <i class="fas fa-gift"></i>
-                        <span>Free lifetime access to beta features</span>
+                        <span>Extended free access during beta phase</span>
                     </div>
                     <div class="benefit">
                         <i class="fas fa-users"></i>
                         <span>Direct feedback channel with our team</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Demo Placeholder Section -->
+    <section id="demo-placeholder" class="demo-placeholder">
+        <div class="container">
+            <div class="demo-content">
+                <h2>Demo Coming Soon</h2>
+                <p>We're working on an amazing product demo that will show you exactly how BrandPulse works. Stay tuned!</p>
+                <a href="#beta-signup" class="cta-button primary">
+                    <i class="fas fa-rocket"></i>
+                    Join Beta Instead
+                </a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Existing Beta Users - Check Status Section -->
+    <section id="check-status" class="check-status">
+        <div class="container">
+            <div class="check-status-content">
+                <h2>Existing Beta Users - Check Your Status</h2>
+                <p>Already signed up? Check if you've been approved for beta access:</p>
+                
+                <form id="approval-check-form" class="status-check-form">
+                    <div class="form-group">
+                        <label for="approval-email">Enter your email address:</label>
+                        <input type="email" id="approval-email" name="approval-email" class="email-input" placeholder="you@email.com" required>
+                    </div>
+                    <button type="submit" class="check-status-btn">
+                        <i class="fas fa-search"></i>
+                        Check Status
+                    </button>
+                    <div id="approval-result" class="status-result"></div>
+                </form>
+                
+                <div class="status-info">
+                    <div class="info-item">
+                        <i class="fas fa-info-circle"></i>
+                        <span>Approved users will receive access to the full dashboard</span>
+                    </div>
+                    <div class="info-item">
+                        <i class="fas fa-clock"></i>
+                        <span>Approval process typically takes 24-48 hours</span>
                     </div>
                 </div>
             </div>
@@ -341,9 +422,9 @@
             <div class="footer-bottom">
                 <p>&copy; 2025 BrandPulse. All rights reserved.</p>
                 <div class="social-links">
-                    <a href="#"><i class="fab fa-twitter"></i></a>
-                    <a href="#"><i class="fab fa-linkedin"></i></a>
-                    <a href="#"><i class="fab fa-github"></i></a>
+                    <a href="https://twitter.com/brandpulse" target="_blank" rel="noopener"><i class="fab fa-twitter"></i></a>
+                    <a href="https://linkedin.com/company/brandpulse" target="_blank" rel="noopener"><i class="fab fa-linkedin"></i></a>
+                    <a href="https://github.com/brandpulse" target="_blank" rel="noopener"><i class="fab fa-github"></i></a>
                 </div>
             </div>
         </div>
@@ -351,23 +432,25 @@
 
     <script src="landing-script.js"></script>
     <script>
-    // Example: Replace with your actual approved emails or fetch from your backend
-    const approvedEmails = [
-        "user1@example.com",
-        "user2@example.com",
-        "alice.smith@email.com"
-    ];
-
+    // Email approval check functionality
     document.getElementById('approval-check-form').addEventListener('submit', function(e) {
         e.preventDefault();
         const email = document.getElementById('approval-email').value.trim().toLowerCase();
         const result = document.getElementById('approval-result');
+        
+        // Example: Replace with your actual approved emails or fetch from your backend
+        const approvedEmails = [
+            "user1@example.com",
+            "user2@example.com",
+            "alice.smith@email.com"
+        ];
+        
         if (approvedEmails.includes(email)) {
-            result.textContent = "✅ Approved! You can access the dashboard.";
-            result.style.color = "#2ecc40";
+            result.innerHTML = '<div class="status-success"><i class="fas fa-check-circle"></i> ✅ Approved! You can access the dashboard.</div>';
+            result.className = 'status-result success';
         } else {
-            result.textContent = "❌ Not approved yet. Please sign up for beta access.";
-            result.style.color = "#d32f2f";
+            result.innerHTML = '<div class="status-pending"><i class="fas fa-clock"></i> ⏳ Not approved yet. Please wait for approval or sign up for beta access above.</div>';
+            result.className = 'status-result pending';
         }
     });
     </script>
